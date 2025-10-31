@@ -1,6 +1,6 @@
-import { app } from "./app";
-
+/* eslint-disable no-console */
+import { app } from './app';
 
 app.listen(3000, ({ hostname, port }) => {
-    console.log(`API Bun rodando em http://${hostname}:${port}`)
-})
+  console.log(`API Bun rodando em http://${hostname}:${port}`);
+});
