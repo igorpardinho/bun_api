@@ -151,7 +151,12 @@ export default [
             "@typescript-eslint/object-curly-spacing": "off",
             
             // 2. Habilita a regra nova com o estilo do Airbnb (sempre)
-            "object-curly-spacing": ["error", "always"]
+            "object-curly-spacing": ["error", "always"],
+
+            "no-param-reassign": ["error", {
+          "props": true,
+          "ignorePropertyModificationsFor": ["set"]
+        }]
             // --- FIM DA CORREÇÃO ---
         },
     }
