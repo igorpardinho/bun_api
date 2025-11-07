@@ -1,15 +1,19 @@
-import Elysia from 'elysia';
-import { userService } from '../services/user.service';
-import { createUserSchema } from '../schemas/user.schema';
+import Elysia from "elysia";
+import { userService } from "../services/user.service";
+import { createUserSchema } from "../schemas/user.schema";
 
-export const userRoutes = new Elysia({ prefix: '/users' })
+export const userRoutes = new Elysia({ prefix: "/users" })
 
-  .get('/', async () => userService.getAll)
+	.get("/", async () => userService.getAll)
 
-  .post('/', async ({ body, set }) => {
-    const newUser = await userService.create(body);
+	.post(
+		"/",
+		async ({ body, set }) => {
+			const newUser = await userService.create(body);
 
-    set.status = 201;
+			set.status = 201;
 
-    return newUser;
-  }, { body: createUserSchema });
+			return newUser;
+		},
+		{ body: createUserSchema },
+	);
