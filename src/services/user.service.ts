@@ -4,11 +4,14 @@ import { usersTable, type InsertUser } from "../db/schema";
 
 export const userService = {
 	getAll: async () => {
-		return await db.select().from(usersTable).orderBy(desc(usersTable.createdAt));
+		return await db
+			.select()
+			.from(usersTable)
+			.orderBy(desc(usersTable.createdAt));
 	},
 
 	create: async (userData: InsertUser) => {
-		const newUser = await db.insert(usersTable).values(userData).returning();
-		return newUser[0];
+		const [newUser] = await db.insert(usersTable).values(userData).returning();
+		return newUser;
 	},
 };

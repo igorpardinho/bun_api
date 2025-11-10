@@ -4,7 +4,7 @@ import { createUserSchema } from "../schemas/user.schema";
 
 export const userRoutes = new Elysia({ prefix: "/users" })
 
-	.get("/", async () => userService.getAll())
+	.get("/", async () => await userService.getAll())
 
 	.post(
 		"/",
